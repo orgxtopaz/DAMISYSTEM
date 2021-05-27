@@ -154,7 +154,7 @@ if (isset($_POST['login'])) {
     $loginhashed_password = sha1($loginpassword);
     echo $loginhashed_password;
 
-    $query = "SELECT * FROM users WHERE username= '$loginusername' && password ='$loginhashed_password' ";
+    $query = "SELECT * FROM users WHERE username= '$loginusername' && password ='$loginpassword' ";
     $data =  mysqli_query($conn, $query);
     $total =  mysqli_num_rows($data);
 
