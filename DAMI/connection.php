@@ -164,6 +164,7 @@ if (isset($_POST['login'])) {
 
     if ($total == 1) {
         $_SESSION['username'] = $loginusername;
+        header("location:userpage.php");
         //   }
     } else {
 
