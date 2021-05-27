@@ -31,7 +31,7 @@ if (isset($_POST['signup'])) {
     $username = $_POST['username'];//store the name username from the form to $username variable
     $email = $_POST['email'];//store the name email from the form to $email variable
     $password = $_POST['password'];//store the name password from the form to $password variable
-    $hashed_password = sha1($password);//encrypting the password
+    $hashed_password = md5($password);//encrypting the password
 
     //execute query
     $select = mysqli_query($conn,  "SELECT * FROM users WHERE username= '$username' || email ='$email'") or exit(mysqli_error($conn));
@@ -151,10 +151,10 @@ if (isset($_POST['signup'])) {
 if (isset($_POST['login'])) {
     $loginusername = $_POST['loginusername'];
     $loginpassword = $_POST['loginpassword'];
-    $loginhashed_password = sha1($loginpassword);
+    $loginhashed_password = md5($loginpassword);
     echo $loginhashed_password;
 
-    $query = "SELECT * FROM users WHERE username= '$loginusername' && password ='$loginpassword' ";
+    $query = "SELECT * FROM users WHERE username= '$loginusername' && password ='$loginhashed_password' ";
     $data =  mysqli_query($conn, $query);
     $total =  mysqli_num_rows($data);
 
