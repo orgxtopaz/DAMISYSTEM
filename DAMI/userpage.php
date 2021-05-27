@@ -1,6 +1,11 @@
 <?php
 session_start(); //setting session for username
-
+if (!isset($_SESSION['username'])) {
+    header('location:index.php');
+}else{
+ 
+   
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
